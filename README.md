@@ -1,5 +1,7 @@
 # Spring Boot - Warm Me Up
 
+Belonging StackOverflow question: https://stackoverflow.com/q/69760176/324531
+
 ## Thing to Demonstrate
 
 Small example to demonstrate that the first request hitting a Spring Boot app is slow.
