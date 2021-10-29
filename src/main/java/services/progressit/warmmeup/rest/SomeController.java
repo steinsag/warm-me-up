@@ -1,7 +1,6 @@
 package services.progressit.warmmeup.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,8 +12,13 @@ import services.progressit.warmmeup.rest.dto.SomeResponseDto;
 
 import javax.validation.Valid;
 
-@RestController("/")
-@RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
+@RestController
+@RequestMapping(
+        path = "/api",
+        consumes = APPLICATION_JSON_VALUE
+)
 public class SomeController {
 
     @Autowired
@@ -25,15 +29,6 @@ public class SomeController {
         final SomeResponseDto responseDto = new SomeResponseDto();
         responseDto.setMessage(someRequestDto.getInputMessage());
         responseDto.setUuid(someService.getUuid());
-
-        return ResponseEntity.ok(responseDto);
-    }
-
-    @PostMapping("warmup")
-    public ResponseEntity<SomeResponseDto> warmUp(@RequestBody @Valid SomeRequestDto someRequestDto) {
-        final SomeResponseDto responseDto = new SomeResponseDto();
-        responseDto.setUuid("some fixed UUID");
-        responseDto.setMessage("some fixed message");
 
         return ResponseEntity.ok(responseDto);
     }
