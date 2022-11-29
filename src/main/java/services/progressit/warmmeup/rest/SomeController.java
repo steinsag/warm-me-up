@@ -10,7 +10,7 @@ import services.progressit.warmmeup.domain.SomeService;
 import services.progressit.warmmeup.rest.dto.SomeRequestDto;
 import services.progressit.warmmeup.rest.dto.SomeResponseDto;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 

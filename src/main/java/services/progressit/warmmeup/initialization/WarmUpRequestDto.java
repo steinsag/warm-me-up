@@ -1,7 +1,7 @@
 package services.progressit.warmmeup.initialization;
 
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 
 public class WarmUpRequestDto {
