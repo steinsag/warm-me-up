@@ -69,12 +69,13 @@ public class PreloadComponent {
     }
 
     private void mapJson() {
-        final String json = "{\n" +
-                "    \"inputMessage\": \"abc\",\n" +
-                "    \"someNumber\": 123.4,\n" +
-                "    \"patternString\": \"this is a fixed string\",\n" +
-                "    \"selectOne\": \"TWO\"\n" +
-                "}";
+        final String json = """
+                {
+                    "inputMessage": "abc",
+                    "someNumber": 123.4,
+                    "patternString": "this is a fixed string",
+                    "selectOne": "TWO"
+                }""";
 
         try {
             final WarmUpRequestDto warmUpRequestDto = objectMapper.readValue(json, WarmUpRequestDto.class);
