@@ -1,0 +1,10 @@
+name: Java CI with Maven
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+      - bugfix/**
+jobs:
+  pipeline:
+    uses: ./.github/workflows/job_ci.yml
