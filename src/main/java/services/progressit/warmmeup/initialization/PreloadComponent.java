@@ -1,7 +1,9 @@
 package services.progressit.warmmeup.initialization;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +13,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+import tools.jackson.databind.ObjectMapper;
 
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.Validation;
-import jakarta.validation.Validator;
-import jakarta.validation.ValidatorFactory;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.Set;
@@ -77,12 +76,8 @@ public class PreloadComponent {
                     "selectOne": "TWO"
                 }""";
 
-        try {
-            final WarmUpRequestDto warmUpRequestDto = objectMapper.readValue(json, WarmUpRequestDto.class);
-            logger.info(warmUpRequestDto.toString());
-        } catch (JsonProcessingException e) {
-            logger.error("problem while parsing warm up JSON");
-        }
+        final WarmUpRequestDto warmUpRequestDto = objectMapper.readValue(json, WarmUpRequestDto.class);
+        logger.info(warmUpRequestDto.toString());
     }
 
     private void manualValidation() {
